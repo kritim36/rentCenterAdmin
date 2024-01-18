@@ -18,6 +18,7 @@ import {
 import MyOrders from "views/admin/orders";
 import MyProducts from "views/admin/products";
 import MyUsers from "views/admin/users";
+import Renters from "views/admin/renters";
 
 
 const routes = [
@@ -49,6 +50,13 @@ const routes = [
     icon: <MdBarChart className="h-6 w-6" />,
     path: "users",
     component: <MyUsers />,
+  },
+  {
+    name: "Renters",
+    layout: "/admin",
+    icon: <MdPerson className="h-6 w-6" />,
+    path: "renters",
+    component: <Renters />,
   },
  
  
