@@ -18,7 +18,7 @@ import {
 import MyOrders from "views/admin/orders";
 import MyProducts from "views/admin/products";
 import MyUsers from "views/admin/users";
-import AdminLogin from "views/admin/login/Login";
+
 
 const routes = [
   {
@@ -50,13 +50,7 @@ const routes = [
     path: "users",
     component: <MyUsers />,
   },
-  {
-    name: "login",
-    layout: "/admin",
-    path: "login",
-    icon: <MdPerson className="h-6 w-6" />,
-    component: <AdminLogin />,
-  },
+ 
  
 ];
 export default routes;
