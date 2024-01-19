@@ -6,13 +6,16 @@ import userSlice from "./userSlice";
 import productsSlice from "./productsSlice";
 
 
-
 const store = configureStore({
     reducer : {
+        
+     
         auth : authSlice,
         orders : orderSlice,
         users : userSlice,
         products : productsSlice
+        
+        
     }
 })
 

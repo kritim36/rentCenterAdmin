@@ -1,7 +1,7 @@
 import {  createSlice } from "@reduxjs/toolkit";
 
 import { STATUSES } from "../globals/misc/statuses";
-import { APIAuthenticated} from "../http";
+import {APIAuthenticated} from "../http";
 
 
 const productSlice = createSlice({
@@ -24,6 +24,15 @@ const productSlice = createSlice({
         // action.payload.productId
         const index = state.products.findIndex(product=>product._id === action.payload.productId)
         state.products.splice(index,1)
+        },
+        updateProductStatusById(state,action){
+            const index = state.products.findIndex(product=>product._id === action.payload.productId)
+            if(index !== -1){
+                state.products[index] = action.payload.data
+            }
+        },
+        addNewProduct(state,action){
+            state.products.push(action.payload)
         }
 
     }
@@ -32,6 +41,26 @@ const productSlice = createSlice({
 export const {setProducts,setStatus,deleteProductById,updateProductStatusById,addNewProduct} = productSlice.actions 
 
 export default productSlice.reducer 
+
+
+export function addProduct(data){
+    return async function addProductThunk(dispatch){
+        dispatch(setStatus(STATUSES.LOADING))
+        try {
+            const response = await APIAuthenticated.post("/product",data, {
+                headers : {
+                    "Content-Type"  : "multipart/form-data"
+                }
+            })
+
+            dispatch(addNewProduct(response.data.data))
+            dispatch(setStatus(STATUSES.SUCCESS))
+        } catch (error) {
+            
+            dispatch(setStatus(STATUSES.ERROR))
+        }
+    }
+}
 
 
 export function fetchProduct(){
@@ -66,7 +95,39 @@ export function deleteProduct(productId){
 }
 
 
+export function updateProductStatus(productId,productStatus){
+    return async function updateProductStatusThunk(dispatch){
+        dispatch(setStatus(STATUSES.LOADING))
+        try {
+            
+            const response = await APIAuthenticated.patch(`/product/status/${productId}`,{productStatus})
+          
+            dispatch(updateProductStatusById({productId,data : response.data.data}))
+            
+            dispatch(setStatus(STATUSES.SUCCESS))
+        } catch (error) {
+            
+            dispatch(setStatus(STATUSES.ERROR))
+        }
+    }
+}
 
-
+export function updateTsqPp(productId,data){
+    return async function updateTsqPpThunk(dispatch){
+        dispatch(setStatus(STATUSES.LOADING))
+        try {
+            
+            const response = await APIAuthenticated.patch(`/product/stockprice/${productId}`,data)
+          
+            dispatch(updateProductStatusById({productId,data : response.data.data}))
+            
+            dispatch(setStatus(STATUSES.SUCCESS))
+            
+        } catch (error) {
+            
+            dispatch(setStatus(STATUSES.ERROR))
+        }
+    }
+}
 
 

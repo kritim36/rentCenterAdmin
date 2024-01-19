@@ -116,20 +116,7 @@ const Myproducts = () => {
                            filteredproducts && filteredproducts.length > 0 && filteredproducts.map((product)=>{
                                 return (
                                     <tr key={product._id}>
-                                    {/* <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <div className="flex items-center">
-                                            <div className="flex-shrink-0 w-10 h-10">
-                                                <img className="w-full h-full rounded-full"
-                                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                    alt="" />
-                                            </div>
-                                            <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    {product.productName}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td> */}
+                                  
                                        <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
                                         <p onClick={()=>navigate(`/admin/products/${product._id}`)} className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >{product._id}</p>
                                     </td>

@@ -4,6 +4,7 @@ import { fetchUser,deleteUser } from 'store/userSlice'
 
 const Myusers = () => {
     const dispatch = useDispatch()
+    
     const {users} = useSelector((state)=>state.users)
     
     const [searchTerm,setSearchTerm] = useState('')
@@ -94,20 +95,7 @@ const Myusers = () => {
                            filteredusers && filteredusers.length > 0 && filteredusers.map((user)=>{
                                 return (
                                     <tr key={user._id}>
-                                    {/* <td className="px-5 py-5 buser-b buser-gray-200 bg-white text-sm">
-                                        <div className="flex items-center">
-                                            <div className="flex-shrink-0 w-10 h-10">
-                                                <img className="w-full h-full rounded-full"
-                                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                    alt="" />
-                                            </div>
-                                            <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    {user.userName}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td> */}
+                                  
                                        <td className="px-5 py-5 buser-b buser-gray-200 bg-white text-sm">
                                         <p className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >{user._id}</p>
                                     </td>
