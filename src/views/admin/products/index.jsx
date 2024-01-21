@@ -95,6 +95,14 @@ const Myproducts = () => {
                                 </th>
                                 <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Brand
+                                </th>
+                                <th
+                                    className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Category
+                                </th>
+                                <th
+                                    className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     StockQty
                                 </th>
                                 <th
@@ -122,6 +130,12 @@ const Myproducts = () => {
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{product.productName}</p>
+                                    </td>
+                                    <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{product.productBrand}</p>
+                                    </td>
+                                    <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{product.productCategory}</p>
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 
-import avatar from "assets/img/avatars/avatar4.png";
+import avatar from "assets/img/dashboards/images.png";
 
 const Navbar = (props) => {
   const { brandText } = props;
