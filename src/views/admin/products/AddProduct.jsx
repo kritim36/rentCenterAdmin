@@ -36,16 +36,16 @@ return(
                   <select id="productBrand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" {...register("productBrand",{required : "productBrand is required"})}  >
             
                       {/* <option selected="">Select brand</option> */}
-                      <option value="vivo">Vivo</option>
-                      <option value="samsung">Samsung</option>
-                      <option value="dell">Dell</option>
-                      <option value="hp">Hp</option>
-                      <option value ="canon">Canon</option>
-                      <option value="nikon">Nikon</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="toyota">Toyota</option>
-                      <option value="honda">Honda</option>
-                      <option value="hero">Hero</option>
+                      <option value="Vivo">Vivo</option>
+                      <option value="Samsung">Samsung</option>
+                      <option value="Dell">Dell</option>
+                      <option value="Hp">Hp</option>
+                      <option value ="Canon">Canon</option>
+                      <option value="Nikon">Nikon</option>
+                      <option value="Mercedes">Mercedes</option>
+                      <option value="Toyota">Toyota</option>
+                      <option value="Honda">Honda</option>
+                      <option value="Hero">Hero</option>
                   </select>
                   <p>{formState.errors.productBrand && formState.errors.productBrand.message}</p>
               </div>
@@ -59,11 +59,11 @@ return(
                   <label htmlFor="productCategory" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
                   <select id="productCategory" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" {...register("productCategory", {required : "productCategory is required"})}>
                       {/* <option selected="">Select category</option> */}
-                      <option value="mobile">Mobile</option>
-                      <option value="laptop">Laptop</option>
-                      <option value="camera">Camera</option>
-                      <option value="car">Car</option>
-                      <option value="bike">Bike</option>
+                      <option value="Mobile">Mobile</option>
+                      <option value="Laptop">Laptop</option>
+                      <option value="Camera">Camera</option>
+                      <option value="Car">Car</option>
+                      <option value="Bike">Bike</option>
                   </select>
                   <p>{formState.errors.productCategory && formState.errors.productCategory.message}</p>
               </div>
