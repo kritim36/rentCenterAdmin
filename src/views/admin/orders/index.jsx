@@ -9,6 +9,7 @@ const MyOrders = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {orders} = useSelector((state)=>state.orders)
+    console.log(orders)
     const [selectedItem,setSelectedItem] = useState('all')
     
     const [searchTerm,setSearchTerm] = useState('')
