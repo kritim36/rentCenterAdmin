@@ -48,14 +48,14 @@ export function fetchRent(){
     }
 }
 
-export function approveProduct(productId){
+export function approveProduct(rentId){
     return async function approveProductThunk(dispatch){
         dispatch(setStatus(STATUSES.LOADING))
         try {
             
-            const response = await APIAuthenticated.patch(`admin/renter/pendingApproval/approve/${productId}`)
+            const response = await APIAuthenticated.patch(`admin/renter/pendingApproval/approve/${rentId}`)
             console.log(response,"Response")
-            dispatch(approveProductById({productId,data : response.data.data}))
+            dispatch(approveProductById({rentId,data : response.data.data}))
             
             dispatch(setStatus(STATUSES.SUCCESS))
         } catch (error) {

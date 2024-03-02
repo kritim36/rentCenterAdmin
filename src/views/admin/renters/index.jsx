@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { approveProductById } from 'store/rentSlice'
+import { approveProduct } from 'store/rentSlice'
+
 import { fetchRent } from 'store/rentSlice'
 //import { fetchRent } from '../../../store/rentSlice'
 
@@ -10,14 +11,13 @@ const Myproducts = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {rents} = useSelector((state)=>state.rent)
-    console.log(rents)
     useEffect(()=>{
         
         dispatch(fetchRent())
     },[])
-    const approveProduct =  (orderId) =>{
+    const approveProducts =  (rentId) =>{
   
-        dispatch(approveProductById)
+        dispatch(approveProduct(rentId))
     }
 
   return (
@@ -106,7 +106,7 @@ const Myproducts = () => {
                                     
                                     <tr key={rent._id}>
                                        <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <p onClick={()=>navigate(`/admin/products/${rent._id}`)} className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >{rent._id}</p>
+                                        <p onClick={()=>navigate(`/admin/renters/${rent._id}`)} className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >{rent._id}</p>
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{rent?.hostedBy}</p>
@@ -139,7 +139,7 @@ const Myproducts = () => {
                                         <p className="text-gray-900 whitespace-no-wrap">{rent?.availableDate}</p>
                                     </td>
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <button onClick={()=>approveProduct(order._id)}  className="text-gray-900 whitespace-no-wrap bg-red-400 p-2">Approve</button>
+                                        <button onClick={()=>approveProducts(rent._id)}  className="text-gray-900 whitespace-no-wrap bg-red-400 p-2">Approve</button>
                                     </td>
                                     {/* <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{rent?.approved}</p>
