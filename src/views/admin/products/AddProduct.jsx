@@ -39,7 +39,7 @@ return(
                       <option value="Vivo">Vivo</option>
                       <option value="Samsung">Samsung</option>
                       <option value="Dell">Dell</option>
-                      <option value="Hp">Hp</option>
+                      <option value="HP">Hp</option>
                       <option value ="Canon">Canon</option>
                       <option value="Nikon">Nikon</option>
                       <option value="Mercedes">Mercedes</option>

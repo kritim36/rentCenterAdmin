@@ -3,6 +3,7 @@ import Widget from "components/widget/Widget";
 
 import { useEffect, useState } from "react";
 import api from "http/ApiService";
+import { ColorModeScript } from "@chakra-ui/system";
 
 const Dashboard = () => {
   const [datas,setDatas] = useState({})
@@ -12,17 +13,22 @@ const Dashboard = () => {
     (
       async ()=>{
         const result = await api.getDatas('admin/misc/datas')
-      
+        console.log(result)
         setDatas(result)
       }
+      
     )()
   },[])
+  
   const totalOrderedUsers = datas && datas.allOrders?.map((order)=>{
     return {
-      userId : order.user._id 
+      userId : order.user
     }
    })
+  
+   
    const uniqueTotalOrderedUsers = [...new Set(totalOrderedUsers?.map(user=>user.userId))]
+   
   return (
     <div>
       {/* Card widget */}

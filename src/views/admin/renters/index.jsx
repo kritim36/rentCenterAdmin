@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { approveProductById } from 'store/rentSlice'
+import { fetchRent } from 'store/rentSlice'
+//import { fetchRent } from '../../../store/rentSlice'
 
 
 const Myproducts = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const {rents} = useSelector((state)=>state.rent)
+    console.log(rents)
+    useEffect(()=>{
+        
+        dispatch(fetchRent())
+    },[])
+    const approveProduct =  (orderId) =>{
+  
+        dispatch(approveProductById)
+    }
 
   return (
   
@@ -11,45 +28,8 @@ const Myproducts = () => {
             <div>
                 <h2 className="text-2xl font-semibold leading-tight">products</h2>
             </div>
-            <div className="flex flex-row mb-1 sm:mb-0">
-           
-           <div className="relative">
-               <select
-                   className="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-                   <option value='all'>all</option>
-                   <option value='available'>available</option>
-                   <option value='unavailable'>unavailable</option>
-     
-               </select>
-               <div
-                   className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                   <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                   </svg>
-               </div>
-           </div>
-       </div>
-            <div className="my-2 flex sm:flex-row flex-col">
-                <div className="block relative">
-                    <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
-                        <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-gray-500">
-                            <path
-                                d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
-                            </path>
-                        </svg>
-                    </span>
-                    <input placeholder="Search"
-                    
-                        className="appearance-none rounded-r rounded-l sm:rounded-l-none bproduct bproduct-gray-400 bproduct-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
-                </div>
-                <div className="block relative">
-                
-                    <input placeholder="Search"
-                    type='date'
-                    
-                        className="appearance-none rounded-r rounded-l sm:rounded-l-none bproduct bproduct-gray-400 bproduct-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
-                </div>
-            </div>
+      
+            
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                     <table className="min-w-full leading-normal">
@@ -57,7 +37,11 @@ const Myproducts = () => {
                             <tr>
                                 <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    UserName
+                                    Id
+                                </th>
+                                <th
+                                    className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    UserId
                                 </th>
                      
                                 <th
@@ -78,17 +62,17 @@ const Myproducts = () => {
                                 </th>
                                 <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                   PricePerDay
+                                   Price
                                 </th>
-                                <th
+                                {/* <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Registration Number
-                                </th>
-                                <th
+                                </th> */}
+                                {/* <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Available Date
-                                </th>
-                                <th
+                                    Model Number
+                                </th> */}
+                                {/* <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Image
                                 </th>
@@ -99,10 +83,14 @@ const Myproducts = () => {
                                 <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Bluebook Image
-                                </th>
+                                </th> */}
                                 <th
                                     className="px-5 py-3 bproduct-b-2 bproduct-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Instruction
+                                    Description
+                                </th>
+                                <th
+                                    className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Available
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -112,42 +100,59 @@ const Myproducts = () => {
                         </thead>
                         <tbody>
                         
-                                
-                                    <tr>
-                                  
+                            {
+                            rents && rents.map((rent)=>{
+                                return (
+                                    
+                                    <tr key={rent._id}>
                                        <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <p className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >UserName</p>
+                                        <p onClick={()=>navigate(`/admin/products/${rent._id}`)} className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >{rent._id}</p>
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">productName</p>
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.hostedBy}</p>
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">productBrand</p>
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productName}</p>
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">productCategory</p>
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productBrand}</p>
                                     </td>
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                           Location
-                                        </p>
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productCategory }</p>
                                     </td>
-                               
                                     <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
-                                    <p className="text-gray-900 whitespace-no-wrap">
-                                           PricePerDay
-                                        </p>
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productLocation }</p>
                                     </td>
-                                    <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">≈
-                                        <p className="text-gray-900 whitespace-no-wrap">Registration Number</p>
+                                    <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productPrice}</p>
+                                    </td>
+                                    {/* <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productRegistrationNumber}</p>
+                                    </td> */}
+                                    {/* <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productModelNumber}</p>
+                                    </td> */}
+                                    <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.productDescription}</p>
+                                    </td>
+                                    <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.availableDate}</p>
                                     </td>
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <button  className="text-gray-900 whitespace-no-wrap bg-red-400 p-2">Verify</button>
+                                        <button onClick={()=>approveProduct(order._id)}  className="text-gray-900 whitespace-no-wrap bg-red-400 p-2">Approve</button>
                                     </td>
+                                    {/* <td className="px-5 py-5 bproduct-b bproduct-gray-200 bg-white text-sm">
+                                        <p className="text-gray-900 whitespace-no-wrap">{rent?.approved}</p>
+                                    </td> */}
                                 </tr>
-                                
-                            
+                                )
+                            })
+                        }
                         
+                               
+                              
+                                
+           
                 
                         </tbody>
                     </table>

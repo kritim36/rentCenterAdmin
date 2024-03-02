@@ -41,6 +41,7 @@ export function fetchUser(){
         dispatch(setStatus(STATUSES.LOADING))
         try {
             const response = await APIAuthenticated.get("admin/users")
+            console.log(response)
             dispatch(setUsers(response.data.data.reverse()))
             dispatch(setStatus(STATUSES.SUCCESS))
         } catch (error) {

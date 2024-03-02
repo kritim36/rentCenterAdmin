@@ -9,7 +9,7 @@ const MyOrders = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {orders} = useSelector((state)=>state.orders)
-    console.log(orders)
+    
     const [selectedItem,setSelectedItem] = useState('all')
     
     const [searchTerm,setSearchTerm] = useState('')
@@ -93,10 +93,10 @@ const MyOrders = () => {
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     OrderId
                                 </th>
-                                <th
+                                {/* <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     UserName
-                                </th>
+                                </th> */}
                      
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -129,9 +129,9 @@ const MyOrders = () => {
                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p onClick={()=>navigate(`/admin/orders/${order._id}`)} className="text-blue-900 whitespace-no-wrap" style={{textDecoration:'underline'}} >{order._id}</p>
                                     </td>
-                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    {/* <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{order.user.userName}</p>
-                                    </td>
+                                    </td> */}
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p className="text-gray-900 whitespace-no-wrap">{order.totalAmount}</p>
                                     </td>

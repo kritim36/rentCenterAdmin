@@ -6,6 +6,7 @@ const Myusers = () => {
     const dispatch = useDispatch()
     
     const {users} = useSelector((state)=>state.users)
+    console.log(users)
     
     const [searchTerm,setSearchTerm] = useState('')
     const [date,setDate] = useState('')

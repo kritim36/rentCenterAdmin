@@ -4,6 +4,7 @@ import authSlice from './authSlice'
 import orderSlice from "./orderSlice";
 import userSlice from "./userSlice";
 import productsSlice from "./productsSlice";
+import rentSlice from "./rentSlice";
 
 
 const store = configureStore({
@@ -13,7 +14,8 @@ const store = configureStore({
         auth : authSlice,
         orders : orderSlice,
         users : userSlice,
-        products : productsSlice
+        products : productsSlice,
+        rent : rentSlice
         
         
     }
