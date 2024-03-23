@@ -62,7 +62,7 @@ return(
                       <option value="Mobile">Mobile</option>
                       <option value="Laptop">Laptop</option>
                       <option value="Camera">Camera</option>
-                      <option value="Car">Car</option>
+                      <option value="Cars">Car</option>
                       <option value="Bike">Bike</option>
                   </select>
                   <p>{formState.errors.productCategory && formState.errors.productCategory.message}</p>
